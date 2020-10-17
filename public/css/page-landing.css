@@ -10,12 +10,29 @@
 #container {
     margin: auto;
 
-    width: 90%;
+    width: min(90%, 112rem); /*Procura o minimo entre 90% e 1120px*/
 }
 
 .location, h1, .visit p {
     height: 16vh;
 
+}
+
+#logo {
+    animation-delay: 50ms;
+}
+
+.location{
+    animation-delay: 100ms;
+}
+
+main h1{
+    animation-delay: 150ms;
+    width: min(300px, 80%); /*Se a pág ficar menor que 300px, aplicar  80%*/
+}
+
+.visit p {
+    animation-delay: 200ms;
 }
 
 .visit a {
@@ -30,29 +47,45 @@
     margin: auto;
 
     transition: background .2s;
+    animation-delay: 250ms;
 }
 
 .visit a:hover{
     background: #96feff;;
 }
 
+/* desktop version */
+@media (min-width: 760px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /*Faz com que haja um espaço entre os elementos*/
+    }
 
-#logo {
-    animation-delay: 50ms;
-}
+    .location, h1, .visit p {
+        height: initial; /*Faz com que a altura retorne para seu valor de origem*/
+        text-align: initial;
+    }
 
-.location{
-    animation-delay: 100ms;
-}
+    .location {
+        text-align: right;
+        font-size: 2.4rem;
+        line-height: 1.5;
+    }
 
-main h1{
-    animation-delay: 150ms;
-}
+    main h1 {
+        font-size: clamp(4rem, 8vw, 8.4rem);
+        font-weight: bold;
+        line-height: 0.88;
 
-.visit p {
-    animation-delay: 200ms;
-}
+        margin: clamp(10%, 9vh, 12%) 0 4rem;
 
-.visit a {
-    animation-delay: 250ms;
+        width: min(300px, 80%); /*Se a pág ficar menor que 300px, aplicar  80%*/
+    }
+
+    .visit p {
+        font-size: 2.4rem;
+        line-height: 1.5;
+        width: clamp(20rem, 20vw, 30rem);
+    }
 }
